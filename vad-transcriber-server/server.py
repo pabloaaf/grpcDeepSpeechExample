@@ -3,6 +3,8 @@ import base64
 import time 
 import sys
 import subprocess
+
+import audioTranscript
 sys.path.insert(1, '/grpc')
 import transcribe_pb2
 import transcribe_pb2_grpc
@@ -14,11 +16,13 @@ def transcribe(msg):
     # python3 audioTranscript_cmd.py --aggressive 1 --audio ./audio/guido-van-rossum.wav --model ./models/0.4.1/
     print(msg)
     sys.stdout.flush()
-    test = subprocess.Popen(["python3", "audioTranscript_cmd.py", "--aggressive", "1", "--audio", "/assets/audios/"+msg, "--model", "/models/"], stdout=subprocess.PIPE)
-    output = test.communicate()[0]
+    # test = subprocess.Popen(["python3", "audioTranscript_cmd.py", "--aggressive", "1", "--audio", "/assets/audios/"+msg, "--model", "/models/"], stdout=subprocess.PIPE)
+    # output = test.communicate()[0]
+    output = transcriptionProcess(1, "/assets/audios/"+msg, "/models/")
+
     print(output)
     sys.stdout.flush()
-    return base64.a85encode(msg.encode())
+    return output
 
 class TService(transcribe_pb2_grpc.TranscribeServiceServicer):
     
