@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package transcriber;
+
+// service, transcribe wav
+service TranscribeService {
+    // request a service of encode
+    rpc getTranscription(fileRoute) returns (transcripts) {}
+}
+
+
+message fileRoute {
+    string fileRoute = 1;// number order of attribute
+}
+
+message transcripts {
+    string jsonTranscript = 1;
+}

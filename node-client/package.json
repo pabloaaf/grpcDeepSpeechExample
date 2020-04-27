@@ -1,0 +1,24 @@
+{
+  "name": "grpcNodeClient",
+  "version": "0.0.1",
+  "description": "CI/CD for NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node_modules/mocha/bin/mocha test/test.js"
+  },
+  "author": "Pablo Alvarez",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.17.1",
+    "grpc": "^1.24.2",
+    "hbs": "^4.1.0",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0"
+  }
+}

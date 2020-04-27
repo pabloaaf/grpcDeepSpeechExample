@@ -1,0 +1,40 @@
+version: "3.5"
+services:
+  node-client:
+    hostname: 192.168.1.125 # localhost
+    environment:
+      - PORT=4000
+    build:
+      context: ./node-client
+      cache_from:
+        - node-client:0.0.1
+    image: node-client:0.0.1
+    volumes:
+      - /home/controller/factor-DC/assets/:/assets
+    expose:
+      - "4000"
+    ports:
+      - "0.0.0.0:4000:4000"
+    links:
+      - vad-transcriber-server
+    command: ["npm", "start"]
+    container_name: node-client
+
+  vad-transcriber-server:
+    environment:
+      - PORT=22222
+    build:
+      context: ./vad-transcriber-server
+      cache_from:
+        - vad-server:0.0.1
+    image: vad-server:0.0.1
+    volumes:
+      - ./vad-transcriber-server/:/app
+      - /home/controller/factor-DC/assets/:/assets
+    expose:
+      - "22222"
+    ports:
+      - "0.0.0.0:22222:22222"
+    command: ["python3", "server.py"]
+    container_name: vad-server
+
