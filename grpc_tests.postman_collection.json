@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "c31d1c56-54c1-4ba1-ae52-c1eaf243ef13",
+		"name": "grpc tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "transcribessh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "file",
+							"value": "ssh.mp4",
+							"type": "text"
+						},
+						{
+							"key": "perfect",
+							"value": "Okay. Welcome back to part two. Um, sorry. I had that, um, kind of suddenly stopped there. I had a computer issue. I needed to restart completely, But we left off here the SSH keygen command, and I wanted to actually show you. So I gathered a fresh system, and in order to know this is a Linux system, you can see it's a virtual machine here, but, um, RSA keys, are system agnostic. So we just type this work on windows is work on Mac, right? If you're using Windows seven, this may or may not work, but I don't think we have anybody using Windows seven. What he said when there's windows 10 as ages now, natively part of windows. You don't have to use third  party. Ah, cygwin or bash SSH or sort of get SSH or anything. It's actually now fully compiled. And and we did that exercise earlier. So if you type SSH keygen, uh, by default, you'll see the the location. All right. I was going to enter. It says for pass phrase is. Don't want to pass phrase, enter again. Will will. There you should see something that looks like this. And now if I do an ls, um, till the dot slash ssh you will see that I have, amongst other things. But do you have an id RSA and id rsa pub. Ah. Now, the name of the file actually doesn't matter. One of the public, one of the private key, right? You can probably guess which ones which. Um, the important part is the contents of the headers and the length and they're tell you, actually, so you could rearrange the names if you wanted to. That wouldn't change what it is. So let's just take a look real quickly. cat. Uh, id RSA stage. Right. You see that? These lines are important. This dash, dash, begin and ends. Uh, and then here, the public key, you can see right there. Now, the private key wanna guard with your life, right? Like I'm going to destroy the key after the videos done. Um, the private key wanna guard with your life? Because it's just like if I find the key to your house or way that, uh, the the swipe card to get into your business. Right. Uh, I don't have to know anything about who you are or what Uh um, what privileges you have. But as long as I can get into, um, you know, I can swipe that card or put that key in the lock I can get in. Public key, on the other hand, is meant to be freely distributed because it's half of the key pair, unless you have the exclusive match and the chances of you randomly generating exclusive match are astronomically zero. Uh, and so the public can you can distribute. This is the whole RSA public. Keep private key. Uh, distribution of of secrets methodology that's been developed improving over and over and over again. Um, covered in a couple of your classes. Um, there. I've got a link. If you want to know more, right, there's a good link. Take it to obviously sort of Wikipedia and go from there. Um, there's a lot deeper and better information, but that just general overview if you're still not sure. Um, so we have these keys, we're done. Okay. Ah, Well, what do we do with them? Well, I was going to the next section deployed keys. So um, each of you were made an admin for your teams. Repo. Not for the the whole organization, but for your team. Uh, and so if you're on team 5 or 6 or something, you know, whichever team you're on your status is all admin that you're also able to add get hope, add on and and plugins as well. Uh, but the main point here is, you know, see that there's a settings tab. Okay. And you're able to go into the settings tab and you notice there's a link call deployed keys. Okay, so I'm going to pull this up here, uh, github, and I'm going to pull up. Right, um 20 to pull the team from last year. Right. Team nine. Okay. And, uh, I go to settings. Right. You will see that each Mm. Uh, and then the deploy keys. Now, these are they're not even keys. These are fingerprints. So you won't even actually see the public key. But you can see that, um, each member of the team Drawn Eric Antwan Ceo, right. Uh, in in case Mister Fog's put in a couple of places, each person added their own keys and then down here. And this this is my my key up here, I added. Right. Um and so what I'm going to do is come back to this little sample one I showed you here and this is the public key, I'm gonna copy the public key content. Okay.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.132:4000/message/",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"132"
+					],
+					"port": "4000",
+					"path": [
+						"message",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transcribetwopers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "file",
+							"value": "two-persons-conversation.mp4",
+							"type": "text"
+						},
+						{
+							"key": "perfect",
+							"value": "I talked to a lot of people who are traditional admins, and they basically set up some sort of automation, even if it's bearable. Bass scripts to initialize an instance the same way, regardless of what are your initializing so is there doing. Unix Linux, Whatever. Even windows they're trying to find a genius solution. The home with a solution. There were probably everybody's in my brain, and so they insure that that just been up. And as long as that's the case and I mean people, right, somebody goes role, does it. You can't do that at the cold tripping and people think, but that that's what when you said you have to cut it off the network and what I'm gonna say is not complain, and then everyone, the process. So this is kind of hard because it's easy to just put something out. Technology laptop out in front and a couple laptops at home. Right. You can deploy something on Amazon. You can put something out really quick, but it's kind of musulim memory the Japanish word is kada. Like a repeted thing that becomes a habit and becomes part of you. So we're ganna include some best practices for operations and development. DevOps right there is your, uh, playing with DevOps as a drinking game right now? I don't think you can have yours right now. They mention right. Ah, show how developers can better enable monitoring. This is for you know, this class is lifted on the ITMO, but it's really no artificial split that says it's only an operation systems class right, developers beneficts as well here. an that's when you're developing a brand new program or you inherit or have to maintain something, so we wanna not excluded that we're all operations people here not saying. arg I never be a developer. You never know. I want to learn how to address changes in IT, dinamic IT environment. Well, what I mean is that in bigger of your comedy, not really hard. What I see is while bigger your hire companies. Becouse what people do is don't know our role. And then if you do try to cut them off, as I'm said, go up and then from down, can you cut them off. And then you are forced to. Because so the answer I would think is the driving through. May do your job, do it well, when your people get promoted, eventually you get promoted to the senior and then kind of trigh it down. I don't like. True, But most people that want to do tecnical things tend to either not want to do management or lack the skill to do, management. And so that's the challenge that I've seen it. Any grassroots movement I started at my workplace Don't sustain because one day needs founding and needs to be shot from the top. Right? Unless you have a champion at that big boy table. Yeah, big big boy/girl table, right? Be professional table. How about that, uh, where people or the people Let me have that we're not in your money at nine. Or was it for that? You are wasn't able or whatever they do so that at least times I've seen it where I'm working with people who are like technical 5, 6 a part of me, architects all of that. But even there. They don't control the budget, right? The budget comes from upper men from a director VP between those. So you need people on this class. Yes, but they would write right. Oh, who knows, any CTI, CTO or something. That would be great. But going back, they have an interest in understanding the tech. Yeah. And what is that? They're also the thing that they are there because they don't want to do the job you are doing. They thrust you to do it. Then thrust me and give me the money, I ask for. So, we will hoppefully see as the generation Go. And you just hear you on line watching as graduate go and kind of multiply the knowledge might turnover in time And we might be at the edge, funny eh. So page 16 what is monitoring and why do we mention here. Some people may be aware of it or may have some ideas? Why doesn't exist. Yeah, I what we get in there? Yeah, yeah, So what is monitoring.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.132:4000/message/",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"132"
+					],
+					"port": "4000",
+					"path": [
+						"message",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transcribevagrant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "file",
+							"value": "vagrant.mp4",
+							"type": "text"
+						},
+						{
+							"key": "perfect",
+							"value": "I talked to a lot of people who are traditional admins, and they basically set up some sort of automation, even if it's bearable. Bass scripts to initialize an instance the same way, regardless of what are your initializing so is there doing. Unix Linux, Whatever. Even windows they're trying to find a genius solution. The home with a solution. There were probably everybody's in my brain, and so they insure that that just been up. And as long as that's the case and I mean people, right, somebody goes role, does it. You can't do that at the cold tripping and people think, but that that's what when you said you have to cut it off the network and what I'm gonna say is not complain, and then everyone, the process. So this is kind of hard because it's easy to just put something out. Technology laptop out in front and a couple laptops at home. Right. You can deploy something on Amazon. You can put something out really quick, but it's kind of musulim memory the Japanish word is kada. Like a repeted thing that becomes a habit and becomes part of you. So we're ganna include some best practices for operations and development. DevOps right there is your, uh, playing with DevOps as a drinking game right now? I don't think you can have yours right now. They mention right. Ah, show how developers can better enable monitoring. This is for you know, this class is lifted on the ITMO, but it's really no artificial split that says it's only an operation systems class right, developers beneficts as well here. an that's when you're developing a brand new program or you inherit or have to maintain something, so we wanna not excluded that we're all operations people here not saying. arg I never be a developer. You never know. I want to learn how to address changes in IT, dinamic IT environment. Well, what I mean is that in bigger of your comedy, not really hard. What I see is while bigger your hire companies. Becouse what people do is don't know our role. And then if you do try to cut them off, as I'm said, go up and then from down, can you cut them off. And then you are forced to. Because so the answer I would think is the driving through. May do your job, do it well, when your people get promoted, eventually you get promoted to the senior and then kind of trigh it down. I don't like. True, But most people that want to do tecnical things tend to either not want to do management or lack the skill to do, management. And so that's the challenge that I've seen it. Any grassroots movement I started at my workplace Don't sustain because one day needs founding and needs to be shot from the top. Right? Unless you have a champion at that big boy table. Yeah, big big boy/girl table, right? Be professional table. How about that, uh, where people or the people Let me have that we're not in your money at nine. Or was it for that? You are wasn't able or whatever they do so that at least times I've seen it where I'm working with people who are like technical 5, 6 a part of me, architects all of that. But even there. They don't control the budget, right? The budget comes from upper men from a director VP between those. So you need people on this class. Yes, but they would write right. Oh, who knows, any CTI, CTO or something. That would be great. But going back, they have an interest in understanding the tech. Yeah. And what is that? They're also the thing that they are there because they don't want to do the job you are doing. They thrust you to do it. Then thrust me and give me the money, I ask for. So, we will hoppefully see as the generation Go. And you just hear you on line watching as graduate go and kind of multiply the knowledge might turnover in time And we might be at the edge, funny eh. So page 16 what is monitoring and why do we mention here. Some people may be aware of it or may have some ideas? Why doesn't exist. Yeah, I what we get in there? Yeah, yeah, So what is monitoring.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.132:4000/message/",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"132"
+					],
+					"port": "4000",
+					"path": [
+						"message",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transcribeActive?",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.1.132:4000",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"132"
+					],
+					"port": "4000"
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
