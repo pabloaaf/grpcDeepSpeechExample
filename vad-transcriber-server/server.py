@@ -4,8 +4,11 @@ import time
 import sys
 import subprocess
 
+#sys.path.append('.')
+#sys.path.append('../grpc')
+
 import audioTranscript
-sys.path.insert(1, '/grpc')
+#sys.path.insert(1, '/grpc')
 import transcribe_pb2
 import transcribe_pb2_grpc
 
@@ -18,7 +21,7 @@ def transcribe(msg):
     sys.stdout.flush()
     # test = subprocess.Popen(["python3", "audioTranscript_cmd.py", "--aggressive", "1", "--audio", "/assets/audios/"+msg, "--model", "/models/"], stdout=subprocess.PIPE)
     # output = test.communicate()[0]
-    output = transcriptionProcess(1, "/assets/audios/"+msg, "/models/")
+    output = audioTranscript.transcriptionProcess(1, msg, "/models")
 
     print(output)
     sys.stdout.flush()

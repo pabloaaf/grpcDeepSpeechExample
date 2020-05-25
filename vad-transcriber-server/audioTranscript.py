@@ -26,13 +26,15 @@ def transcriptionProcess(aggressive, audioLoc, modelLoc):
     #if args.stream is True:
     #    print("Opening mic for streaming")
     #elif args.audio is not None:
-    logging.debug("Transcribing audio file @ %s" % audioLoc)
+    logging.debug("Transcribing audio file: %s" % audioLoc)
     #else:
     #    parser.print_help()
     #    parser.exit()
 
     # Point to a path containing the pre-trained models & resolve ~ if used
     dirName = os.path.expanduser(modelLoc)
+
+    logging.debug("dirName: %s" % dirName)
 
     # Resolve all the paths of model files
     output_graph, scorer = wavTranscriber.resolve_models(dirName)

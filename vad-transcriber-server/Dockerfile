@@ -20,9 +20,4 @@ WORKDIR /grcp
 COPY ./transcribe.proto /grcp
 RUN python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. transcribe.proto
 
-WORKDIR /app
-
-
-
-
-
+WORKDIR /
