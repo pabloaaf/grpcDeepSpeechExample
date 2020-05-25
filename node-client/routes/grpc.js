@@ -1,31 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const client = require("../utils/grpc-client");
+const { videoController: controller }=require("../controllers/");
 
-router.get('/test', (req, res) => {
-	let message = {
-        fileRoute: "2830-3980-0043.wav"
-    };
-    console.log("transcribe: ",message);
-    client.getTranscription(message, (err, data) => {
-        if (err) console.log("err: ",err);
+router.get('/test', controller.testAudio);
 
-        console.log("Response Deepspeech", data);
-		res.status(200).json(data);
-    });
+router.post('/', (req, res, next) => {
+    req.setTimeout(0); // no timeout to process the video
+    next();
 });
 
-router.post('/', (req, res) => {
-	let message = {
-        fileRoute: req.body.file //2830-3980-0043.wav
-    };
-    console.log("transcribe: ",message);
-    client.getTranscription(message, (err, data) => {
-        if (err) console.log("err: ",err);
-
-        console.log("Response Deepspeech", data);
-		res.status(200).json(data);
-    });
-});
+router.post('/', controller.processVideo);
 
 module.exports = router;

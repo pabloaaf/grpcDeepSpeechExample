@@ -1,7 +1,7 @@
 {
   "name": "grpcNodeClient",
   "version": "0.0.1",
-  "description": "CI/CD for NodeJS",
+  "description": "endpoint for NodeJS test grpc",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "@grpc/proto-loader": "^0.5.3",
+    "aws-sdk": "^2.683.0",
     "body-parser": "^1.18.3",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "grpc": "^1.24.2",
     "hbs": "^4.1.0",
     "uuid": "^7.0.2"

@@ -2,8 +2,8 @@ version: "3.5"
 services:
   node-client:
     hostname: 192.168.1.125 # localhost
-    environment:
-      - PORT=4000
+    env_file:
+      - ./node-client/.env
     build:
       context: ./node-client
       cache_from:
@@ -35,6 +35,6 @@ services:
       - "22222"
     ports:
       - "0.0.0.0:22222:22222"
-    command: ["python3", "server.py"]
+    command: ["python3", "/app/server.py"]
     container_name: vad-server
 
