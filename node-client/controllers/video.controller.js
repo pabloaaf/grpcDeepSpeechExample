@@ -1,7 +1,7 @@
 const { videoService: service } = require('../services');
-const client = require("../utils/grpc-client");
+//const client = require("../utils/grpc-clien t");
 
-const testAudio = (req, res) => {
+/*const testAudio = (req, res) => {
     let message = {
         fileRoute: "/assets/audios/" + "2830-3980-0043.wav"
     };
@@ -12,7 +12,7 @@ const testAudio = (req, res) => {
         console.log("Response Deepspeech", data);
         res.status(200).json(data);
     });
-};
+};*/
 
 const processVideo = async (req, res) => {
     let message = {
