@@ -26,8 +26,10 @@ const processVideo = async (req, res) => {
     // No timeout
     res.status(200).json(message);
 
+    let test = req.body.file.split('.')[0];
+
     let staticsInfo = {
-        finalName: 'v-'+Date.now()+'-'+req.body.file.split('.')[0],
+        finalName: 'v-'+Date.now()+'-'+test,
         video: '/assets/classes/',
         audio: '/assets/audios/',
         videoExtension: 'mp4',
@@ -108,8 +110,8 @@ const processVideo = async (req, res) => {
 
     // CSV Format ; delimiter
     console.log("File;Compute time;STT;Transcripts;Levenshtein Distance ABS;Levenshtein Distance % Similarity;Cosine Similarity;Jaro Wrinker");
-    console.log(staticsInfo.finalName+";"+elapsedSecondsAWS+";AWS;"+tAWS+";"+similarity_LD_AWS+";"+(1-(similarity_LD_AWS/tperfect.length))+";"+similarity_CD_AWS+";"+similarity_JW_AWS);
-    console.log(staticsInfo.finalName+";"+elapsedSecondsDS+";DeepSpeech;"+tDS+";"+similarity_LD_DS+";"+(1-(similarity_LD_DS/tperfect.length))+";"+similarity_CD_DS+";"+similarity_JW_DS);
+    console.log(test+";"+elapsedSecondsAWS+";AWS;"+tAWS+";"+similarity_LD_AWS+";"+(1-(similarity_LD_AWS/tperfect.length))+";"+similarity_CD_AWS+";"+similarity_JW_AWS);
+    console.log(test+";"+elapsedSecondsDS+";DeepSpeech;"+tDS+";"+similarity_LD_DS+";"+(1-(similarity_LD_DS/tperfect.length))+";"+similarity_CD_DS+";"+similarity_JW_DS);
 };
 
 const parseHrtimeToSeconds = (hrtime) => {
@@ -118,6 +120,6 @@ const parseHrtimeToSeconds = (hrtime) => {
 };
 
 module.exports = {
-    testAudio,
+    //testAudio,
     processVideo
 };

@@ -2,6 +2,11 @@ const AWS = require("../utils/aws-transcribe");
 const exec = require('child_process').exec;
 const client = require("../utils/grpc-client");
 
+const parseHrtimeToSeconds = (hrtime) => {
+    let seconds = (hrtime[0] + (hrtime[1] / 1e9)).toFixed(3);
+    return seconds;
+};
+
 const splitAudio = async (path, destPath, frec) => {
   return new Promise(async (resolve, reject) => {
     let command = "ffmpeg -i "+ path +" -acodec pcm_s16le -ac 1 -ar "+ frec +" "+ destPath;
