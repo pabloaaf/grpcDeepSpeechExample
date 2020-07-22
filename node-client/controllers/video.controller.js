@@ -66,7 +66,7 @@ const processVideo = async (req, res) => {
     //console.log(audio.Body.toString('utf8'));
 
     //jsonAWS = jsonAWS.toJSON();
-    let elapsedSecondsAWS = parseHrtimeToSeconds(process.hrtime(startTimeAWS));
+    let elapsedSecondsAWS = service.parseHrtimeToSeconds(process.hrtime(startTimeAWS));
     //console.log("AWS takes " + elapsedSecondsAWS + " seconds");
     let jsonAWS = JSON.parse(audio.Body);
     //console.log(jsonAWS);
@@ -75,7 +75,7 @@ const processVideo = async (req, res) => {
     // DeepSpeech method
     let startTimeDS = process.hrtime();
     let jsonDeepSpeech = await service.transcribeDeepSpeech(staticsInfo.audio+staticsInfo.finalName+'-deepspeech.'+staticsInfo.audioExtension);
-    let elapsedSecondsDS = parseHrtimeToSeconds(process.hrtime(startTimeDS));
+    let elapsedSecondsDS = service.parseHrtimeToSeconds(process.hrtime(startTimeDS));
     //console.log("DeepSpeech takes " + elapsedSecondsDS + " seconds");
 
     // compare time results
@@ -112,11 +112,6 @@ const processVideo = async (req, res) => {
     console.log("File;Compute time;STT;Transcripts;Levenshtein Distance ABS;Levenshtein Distance % Similarity;Cosine Similarity;Jaro Wrinker");
     console.log(test+";"+elapsedSecondsAWS+";AWS;"+tAWS+";"+similarity_LD_AWS+";"+(1-(similarity_LD_AWS/tperfect.length))+";"+similarity_CD_AWS+";"+similarity_JW_AWS);
     console.log(test+";"+elapsedSecondsDS+";DeepSpeech;"+tDS+";"+similarity_LD_DS+";"+(1-(similarity_LD_DS/tperfect.length))+";"+similarity_CD_DS+";"+similarity_JW_DS);
-};
-
-const parseHrtimeToSeconds = (hrtime) => {
-    let seconds = (hrtime[0] + (hrtime[1] / 1e9)).toFixed(3);
-    return seconds;
 };
 
 module.exports = {
